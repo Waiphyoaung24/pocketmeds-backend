@@ -22,7 +22,16 @@ class BookingLabTests(APIView):
     
     def post(self,request):
             database = db['booking_lab_tests']
-            data = request.data
-            print(data)
-            database.insert_one(data)
-            return Response("data has been successfully inserted")
+            try:
+                status = 200
+                msg = "Data has been successfully inserted"
+                data = request.data
+                if data is None:
+                    database.insert_one(data)
+                else:
+                     msg = "Data is empty"
+            except Exception as e:
+                status = 500
+                msg = 'Server error, yo.'
+    
+            return Response({'message': msg},status = status)
