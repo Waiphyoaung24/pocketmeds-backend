@@ -27,9 +27,10 @@ class BookingLabTests(APIView):
                 msg = "Data has been successfully inserted"
                 data = request.data
                 if data is None:
-                    database.insert_one(data)
+                    msg = "Data is empty"
                 else:
-                     msg = "Data is empty"
+                    database.insert_one(data)
+
             except Exception as e:
                 status = 500
                 msg = 'Server error, yo.'
