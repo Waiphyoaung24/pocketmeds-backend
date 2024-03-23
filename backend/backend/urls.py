@@ -19,4 +19,12 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< Updated upstream
+=======
+    path('labtests/', include('labtests.urls')),
+    path('heathconcerns/',include('healthconcerns.urls')),
+    path('booking/',include('bookings.urls')),
+    path('doctors/',include('doctors.urls'))
+
+>>>>>>> Stashed changes
 ]
