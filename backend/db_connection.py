@@ -4,7 +4,8 @@ connection_string = 'mongodb://localhost:27017/'
 
 
 client = pymongo.MongoClient(connection_string)
-db = client['django_search']
+
+db = client['test_database']
 
 
 
